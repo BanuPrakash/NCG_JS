@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="lib.js"></script>
+</head>
+
+<body>
+    <script>
+        var data = [6, 2, 11, 62, 46, 31, 9, 4];
+        var names = ["Jack", "George", "Scarlett", "Angelina", "Brad"];
+
+        // for(name of names) {
+        //     console.log(name); // action
+        // }
+
+        // for(name of names) {
+        //     alert(name); // action
+        // }
+
+        forEach(data, console.log);
+        forEach(names, console.log);
+        // forEach(names, alert); 
+
+        var products = [
+            { "id": 13, "name": "iPhone 16", "price": 98000.00, "category": "mobile" },
+            { "id": 13, "name": "Onida Thunder", "price": 3000.00, "category": "tv" },
+            { "id": 13, "name": "Samsung Fold", "price": 123000.00, "category": "mobile" },
+            { "id": 13, "name": "MotoG", "price": 12000.00, "category": "mobile" },
+            { "id": 13, "name": "Sony Bravia", "price": 267000.00, "category": "tv" },
+            { "id": 36, "name": "Wacom", "price": 5600.00, "category": "computer" }
+        ]
+
+        let evens = filter(data, function (e) { return e % 2 === 0; });
+        let mobiles = filter(products, function (p) { return p.category === 'mobile'; })
+
+        console.log(evens);
+        console.log(mobiles);
+
+        console.log("******** MAP **********");
+
+        let nameData = map(products, function (p) { return p.name });
+        console.log(nameData);
+
+        function toCard(p) {
+            return `
+             <div class='card'>
+                <div class='card-header'>
+                    ${p.name}
+                </div>
+                <div class='card-footer'>
+                    ${p.price}
+                </div>
+            </div
+        `
+        }
+        var cards = map(products, toCard);
+        forEach(cards, console.log);
+        
+    </script>
+</body>
+
+</html>
