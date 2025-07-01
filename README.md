@@ -50,7 +50,7 @@ file.js
         console.log(g, a, b, c);
     }
     doTask();
-    console.log(g, a, b, c);
+    console.log(g,  c);
 ```
 
 
@@ -115,6 +115,10 @@ Assuming Java Thread for timer.
 
 Timers, Events --> Macro Task Queue
 Promise --> Micro Task Queue
+
+Note: By default the return value of a function is undefined.
+
+Resume @ 11:30
 
 
 
