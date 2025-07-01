@@ -452,3 +452,29 @@ Promise.all([task1(), task2(), task3()]) runs each task on seperate thread, wait
 
 Promise.race([task1(), task2(), task3()]) waits for one of them to finish, ignores others
 
+* async and await
+syntactical sugar on Promise API to avoid callback hell
+
+```
+Promises and nested callbacks
+Dependend API calls
+getUser(userId).then(function(user) {
+    getOrders(user).then(function(orders) {
+        processOrders(orders).then(function(processed) {
+            sendEmail(processed).then(function(confirmation) {
+                    console.log("Order Processed:", confirmation);
+            }))
+        })
+    })
+```
+
+With async and Await:
+```
+    async function handleOrders(userId) {
+        let user = await getUser(userId); // promise API
+        let orders = await getOrders(user); // Promise API
+        let processed = await processOrders(orders); // Promise API
+        let confirmation = await sendEmail(processed);// Promise API
+         console.log("Order Processed:", confirmation);
+    }
+```
