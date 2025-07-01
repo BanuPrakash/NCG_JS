@@ -291,3 +291,11 @@ https://rxmarbles.com/
 4) reduce --> aggregate [ single value ]
 
 Note: all the above methods are already available for array types
+
+=======
+Resume @ 2:00
+
+* functions returning a function ==> HOF
+* Look at ES2015 features
+* DOM
+* NodeJS if possible
