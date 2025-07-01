@@ -307,3 +307,148 @@ Memoization is an optimization technique in programming where the results of exp
 
 React.memo() and useMemo()  uses closure for memoization.
 
+==================================
+
+What is the output of below code?
+```
+
+    function add(x, y) {
+            return x + y;
+    }
+
+    console.log(add(4, 5)); // 9
+
+    AST JS tokenizer will evaluate "return" as a valid token and executes it
+    x + y is taken as a new token ---> unreachable code
+
+    function add(x, y) {
+            return
+                x + y;
+    }
+
+    console.log(add(4,5)); // undefined
+```
+
+===============================
+
+ES2015 / ES 6 features
+ES 2020 / ES 7 version is the latest stable version of JavaScript.
+
+* scope members using let and const
+```
+    function doTask() {
+        const PI = 3.14159; // constant
+        var x = 10; // let or var no effect
+        if( x > 5) {
+            let y = 20; // block scope, not hoisted to function scope
+        }
+        console.log(y); // error
+    }
+
+if we do transpile this code to lower version it introduces a lot of code
+Example: 
+if( x > 5) {
+    var _y = (
+        function() {
+            var y = 20;
+            return y;
+        }
+    )();
+}
+```
+
+* Template string
+allows multi-line string with interpolation
+```
+`
+             <div class='card'>
+                <div class='card-header'>
+                    ${p.name}
+                </div>
+                <div class='card-footer'>
+                    ${p.price}
+                </div>
+            </div
+`
+
+```
+
+* Destructuring
+
+```
+let product =  { "id": 13, "name": "iPhone 16", "price": 98000.00, "category": "mobile" };
+
+extract to local variables:
+
+let {name, price} = product;
+console.log(name, price); instead of
+console.log(product.name, product.price); 
+
+let colors = ["red", "green", "blue", "purple", "pink"];
+
+let [r, g , ...others] = colors;
+
+console.log(r); // red
+console.log(others); // "blue", "purple", "pink"
+
+old Way:
+console.log(colors[0]); // avoid this
+```
+
+* Cloning
+
+```
+    var data = [6, 2, 11, 62, 46, 31, 9, 4];
+    var ref = data; // reference points to same heap area
+
+    ref[1] = 61;
+
+    console.log(data[1]); // 61
+
+    clone:
+
+    var clone = [...data];
+    clone[0] = 99;
+    console.log(data[0]); // 6 
+```
+
+* Arrow function
+```
+    let add = (x, y) => x + y;
+
+```
+
+* Promise API for async operations -> generally used to execute side effects
+Promises in JavaScript are objects that represent the eventual completion (or failure) of an asynchronous operation and its resulting value. 
+A Promise can be in one of three states:
+Pending: The initial state; the asynchronous operation is still in progress.
+Fulfilled (or Resolved): The operation completed successfully, and the promise has a resulting value.
+Rejected: The operation failed, and the promise has a reason for the failure (an error).
+
+Assume doTask() is a synchronous function
+```
+    let result = doTask(); // blocking code
+    console.log("End!!!"); // waits for doTask() completion
+
+```
+
+
+Assume doTask() is a Asynchronous function [Promise based]
+
+```
+    let result;
+    doTask().then(function (data) {
+        // Fulfilled
+        result = data;
+    },
+    function (err) {
+        //Rejected
+        console.log(err);
+    });
+    console.log("End!!!"); // non blocking
+
+```
+Promise.all([task1(), task2(), task3()]) runs each task on seperate thread, wait for all to finish
+
+Promise.race([task1(), task2(), task3()]) waits for one of them to finish, ignores others
+

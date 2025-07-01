@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function doTask() {
+            // return new Promise(function(resolve, reject) {
+            //     setTimeout(function() {
+            //         resolve("Products data!!!");
+            //     }, 1000);
+            // });
+            return new Promise((resolve, reject) => {
+                setTimeout(() => resolve("Products data!!!"), 1000);
+            });
+        }
+
+        // doTask().then( function(data) {
+        //     console.log(data);
+        // },
+        // function(err) {
+        //     console.log("Boom :-(", err);
+        // }    
+        // )
+
+        doTask().then((data) => console.log(data),
+            (err) => console.log("Boom :-(", err))
+
+        console.log("End !!!"); // non blocking
+    </script>
+</body>
+
+</html>
