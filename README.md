@@ -486,4 +486,37 @@ we use "yield" instead of "return"
 
 https://caniuse.com/
 
+=============================
+
+DOM: Document Object Model
+Tree of Objects in languages like JavaScript / Java / C# for XML / XHTML
+
+document: root object
+* access elements
+* create elements
+document.createElement("div");
+* remove elements
+* traverse/navigate through elements
+* add event handling 
+
+Access elements: 
+```
+    <p class="para"> </p>
+    <div id="card">
+
+    </div>
+    <div>
+
+    </div>
+    <div>
+
+    </div>
+     <p class="para"> </p>
+```
+1) document.getElementById("card"); 
+2) document.getElementsByTagName("div"); // get all divs in document
+3) document.querySelector("#card"); // get by id
+4) document.querySelectorAll("div"); // by tag name
+5) document.querySelectorAll(".para"); get elements which has a class "para"
+ 
 

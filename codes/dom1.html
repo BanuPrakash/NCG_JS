@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form>
+        Id <input type="number" id="id" /> <br />
+        Username <input type="text" id="uname" /> <br />
+        Email <input type="email" id="email" /> <br />
+        <button type="button" id="addBtn">Add User</button>
+    </form>
+    <table id="tbl">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody id="tbody">
+        </tbody>
+    </table>
+
+
+    <script>
+        let table_body = document.getElementById("tbody");
+
+        document.getElementById("addBtn").addEventListener("click", function (event) {
+            let tr = document.createElement("tr"); // <tr>
+            let td = document.createElement("td");
+            let content = document.createTextNode(+document.getElementById("id").value);
+            td.appendChild(content);
+            tr.appendChild(td);
+
+            td = document.createElement("td");
+            content = document.createTextNode(document.getElementById("uname").value);
+            td.appendChild(content);
+            tr.appendChild(td);
+
+            td = document.createElement("td");
+            content = document.createTextNode(document.getElementById("email").value);
+            td.appendChild(content);
+            tr.appendChild(td);
+
+            td = document.createElement("td");
+            btn = document.createElement("button");
+            btn.appendChild(document.createTextNode("Delete"));
+            btn.classList.add("del")
+            td.appendChild(btn);
+            tr.appendChild(td);
+
+            table_body.appendChild(tr);
+        });
+        document.getElementById("addBtn").addEventListener("click", function (event) {
+            console.log("You cliked Add Button!!!")
+        });
+
+
+
+        fetch('https://jsonplaceholder.typicode.com/users')
+            .then(response => response.json())
+            .then(data => {
+                data.forEach(user => {
+                    let tr = document.createElement("tr"); // <tr>
+                    let td = document.createElement("td");
+                    let content = document.createTextNode(user.id);
+                    td.appendChild(content);
+                    tr.appendChild(td);
+
+                    td = document.createElement("td");
+                    content = document.createTextNode(user.username);
+                    td.appendChild(content);
+                    tr.appendChild(td);
+
+                    td = document.createElement("td");
+                    content = document.createTextNode(user.email);
+                    td.appendChild(content);
+                    tr.appendChild(td);
+
+                    td = document.createElement("td");
+                    btn = document.createElement("button");
+                    btn.appendChild(document.createTextNode("Delete"));
+                    btn.classList.add("del")
+                    td.appendChild(btn);
+                    tr.appendChild(td);
+                    table_body.appendChild(tr);
+                });
+
+                document.querySelectorAll(".del").forEach(elem => elem.addEventListener("click", (event) => {
+                    console.log(event);
+                    event.target.parentNode.parentNode.remove();
+                    // POST API call
+                }));
+            });
+    </script>
+</body>
+
+</html>
