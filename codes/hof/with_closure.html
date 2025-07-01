@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // HOF
+        function memoize(fn) {
+            var cache = {};
+            return function (args) {
+                if (!cache[args]) {
+                    cache[args] = fn(args);
+                }
+                return cache[args];
+            }
+        }
+
+        function fibanocci(no) {
+            if (no == 0 || no == 1) {
+                return no;
+            } else {
+                return fibanocci(no - 1) + fibanocci(no - 2);
+            }
+        }
+
+        var memFib = memoize(fibanocci);
+
+        console.time("first");
+        console.log(memFib(40));
+        console.timeEnd("first");
+
+        console.time("sec");
+        console.log(memFib(40)); // should have be fetched from cache
+        console.timeEnd("sec");
+
+    </script>
+</body>
+
+</html>

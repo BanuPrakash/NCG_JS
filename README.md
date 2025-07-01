@@ -293,9 +293,17 @@ https://rxmarbles.com/
 Note: all the above methods are already available for array types
 
 =======
-Resume @ 2:00
 
-* functions returning a function ==> HOF
-* Look at ES2015 features
-* DOM
-* NodeJS if possible
+Callbacks are most of the time HOF --> functions which are placed into Callback queues by WebAPi or libuv threads and not directly on to stack.
+
+* Functions which return a function --> Closure
+Closure: a concept where returned function can access members of outer function.
+
+In JavaScript, a closure is a function that "remembers" and can access variables from its outer (enclosing) function's scope, even after the outer function has finished executing. 
+
+getProduct(5);
+
+Memoization is an optimization technique in programming where the results of expensive function calls are stored (or cached) so that when the same inputs occur again, the precomputed result is returned instead of re-executing the function.
+
+React.memo() and useMemo()  uses closure for memoization.
+
