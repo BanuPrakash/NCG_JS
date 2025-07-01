@@ -334,7 +334,7 @@ What is the output of below code?
 ES2015 / ES 6 features
 ES 2020 / ES 7 version is the latest stable version of JavaScript.
 
-* scope members using let and const
+1) scope members using let and const
 ```
     function doTask() {
         const PI = 3.14159; // constant
@@ -357,7 +357,7 @@ if( x > 5) {
 }
 ```
 
-* Template string
+2) Template string
 allows multi-line string with interpolation
 ```
 `
@@ -373,7 +373,7 @@ allows multi-line string with interpolation
 
 ```
 
-* Destructuring
+3) Destructuring
 
 ```
 let product =  { "id": 13, "name": "iPhone 16", "price": 98000.00, "category": "mobile" };
@@ -395,7 +395,7 @@ old Way:
 console.log(colors[0]); // avoid this
 ```
 
-* Cloning
+4) Cloning
 
 ```
     var data = [6, 2, 11, 62, 46, 31, 9, 4];
@@ -412,13 +412,13 @@ console.log(colors[0]); // avoid this
     console.log(data[0]); // 6 
 ```
 
-* Arrow function
+5) Arrow function
 ```
     let add = (x, y) => x + y;
 
 ```
 
-* Promise API for async operations -> generally used to execute side effects
+6) Promise API for async operations -> generally used to execute side effects
 Promises in JavaScript are objects that represent the eventual completion (or failure) of an asynchronous operation and its resulting value. 
 A Promise can be in one of three states:
 Pending: The initial state; the asynchronous operation is still in progress.
@@ -452,7 +452,7 @@ Promise.all([task1(), task2(), task3()]) runs each task on seperate thread, wait
 
 Promise.race([task1(), task2(), task3()]) waits for one of them to finish, ignores others
 
-* async and await
+7) async and await
 syntactical sugar on Promise API to avoid callback hell
 
 ```
@@ -478,3 +478,12 @@ With async and Await:
          console.log("Order Processed:", confirmation);
     }
 ```
+
+8) Generators:
+generators are special functions that offer the ability to pause their execution and resume later, yielding multiple values over time.
+Useful for SAGA design pattern
+we use "yield" instead of "return"
+
+https://caniuse.com/
+
+

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // generator
+        function* doTask() {
+            // Stage 1
+            console.log("step 1");
+            console.log("step 2");
+            yield {
+                id: 15,
+                name: "Roger"
+            };
+            // stage 2
+            console.log("step 3");
+            console.log("step 4");
+            yield "record updated";
+            // stage 3
+            console.log("step 5");
+            yield "transaction completed!!!";
+        }
+
+        let iter = doTask(); // reference to generator
+        let result = iter.next(); // exeucte till first yield
+        console.log(result);
+        if (result.value.id > 0) {
+            result = iter.next();
+            console.log(result);
+        }
+        result = iter.next();
+        console.log(result);
+        result = iter.next();
+        console.log(result);
+    </script>
+</body>
+
+</html>
