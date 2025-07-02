@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style>
+    #outer {
+      background-color: khaki;
+      position: relative;
+      width: 150px;
+      height: 150px;
+      text-align: center;
+      cursor: pointer;
+    }
+
+    #inner {
+      background-color: pink;
+      position: absolute;
+      top: 25px;
+      left: 25px;
+      width: 100px;
+      height: 100px;
+    }
+
+    button {
+      background-color: coral;
+      position: absolute;
+      top: 25px;
+      left: 25px;
+      width: 50px;
+      height: 50px;
+      line-height: 50px;
+      margin: 0;
+    }
+  </style>
+  <title>MindParkour</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+</head>
+
+<body class="container" style="background-color: cadetblue;">
+  <h1 id="heading">Event Bubbling and Capturing</h1>
+
+  <div id="outer">
+    Outer
+    <p id="inner">
+      Inner
+      <button>Click Me!!!</button>
+    </p>
+  </div>
+
+  <script>
+    var elems = document.querySelectorAll("*");
+
+    // capture phase
+    for (elem of elems) {
+      elem.addEventListener("click", function (evt) {
+        console.log("CAPTURE : ", evt.currentTarget.tagName);
+
+      }, true);
+    }
+
+    // bubbling phase
+    for (elem of elems) {
+      elem.addEventListener("click", function (evt) {
+        console.log("BUBBLE : ", evt.currentTarget.tagName);
+        evt.stopPropagation();
+      });
+    }
+  </script>
+
+</body>
+
+</html>

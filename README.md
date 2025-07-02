@@ -520,3 +520,86 @@ Access elements:
 5) document.querySelectorAll(".para"); get elements which has a class "para"
  
 
+======================================
+
+Recap:
+1) JS execution Context: Global Creation Context, Global Execution Context, Function Creation Context, Function Execution Context
+2) JS environment: JS stack, WebApi [ async operations like threads or Socket based api], Macro Task Queue and Micro Task Queue [Callback queue], Event loop, Tick
+3) OOP: Object, JSON, constructor pattern;  function is also an object of Function extends Object
+4) every function inherits call, apply, bind, toString, valueOf, hasOwnProperty 
+object.method()
+method.call(context, arg1, arg2, arg3);
+method.apply(context, [arg1, arg2, arg3]);
+5) ES 6 features.
+6) DOM: XML in Object tree is DOM --> document
+
+============
+
+Day 2:
+
+Node JS: platform built on V8 js engine runtime for easily building fast, scalable network application.
+NodeJS --> event driven, non-blocking I/O model
+
+
+libuv: libuv is a multi-platform C/C++ library that provides support for asynchronous I/O based on event loops. --> does the work same as WebApi for Browsers
+
+https://github.com/nodejs/node
+
+const {
+  getFipsCrypto,
+  setFipsCrypto,
+  timingSafeEqual,
+} = internalBinding('crypto'); --> Connects to C/C++ code
+lib --> js library
+src --> c/c++ codes.
+
+old version process.binding();
+
+===================
+
+Where can i use NodeJS?
+* Building traditional web application --> server sends presentation pages for request
+* Build RESTful WS / GraphQL --> sending formats like JSON / XML for represention of data
+* Real time application --> Chatbot
+* Streaming apis like OTT
+* For web application development also we use nodejs
+Why?
+1) We can choose to write our code in different languages like TypeScript / CoffeeScript / LiveScript/ DART, ...
+
+TypeScript -> on top of JS gives me static typing
+```
+    let name:String = "Roger";
+    name = 50; 
+```
+
+
+[TypeScript / CoffeeScript / LiveScript/ DART] --> compiler --> JS code --> JS engine
+
+Latest version of JS --> transpile /transcompiler --> lower version of JS compatable with target machine
+
+2) Testing :Unit testing, E2E testing
+3) Linting -> Static code analysis --> Naming conventions and Good programming practices
+4) Minify and Uglify code: minification eliminates all extra white spaces, uglify changes length members to shorter version.
+5) bundle CSS and JS files
+
+Without bundling:
+1) We need to include in a proper order
+2) each script inclusion of CSS reference leads to a network call
+
+```
+    index.html
+    <script src="customer.js"></script>
+    <script src="product.js"></script>
+    <script src="order.js"></script>
+    <script src="payment.js"></script>
+    ...
+```
+
+With bundling:
+bundle.js contains minfifies and uglified versions of customer.js, product.js, order.js, payment.js
+```
+ index.html
+    <script src="bundle.js"></script>
+```
+
+

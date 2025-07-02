@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   
+    <title>MindParkour</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+     
+</head>
+<body class="container">
+    <h1 id="heading">Forms</h1>
+    <p id="para">
+        This is a demo paragraph <br />
+    </p>
+    <input type="checkbox" id="makeItGreen"/>Make it Green <br />
+
+    <select id="color">
+        <option value="-1">--SELECT--</option>
+        <option value="red">Change to Red</option>
+        <option value="green">Change to Green</option>
+        <option value="khaki">Change to khaki</option>
+    </select>
+    
+    <script>
+        document.getElementById("makeItGreen").addEventListener("change", function(event) {
+            if(event.target.checked) {
+                document.getElementById("para").style.color = 'green';
+            } else {
+                document.getElementById("para").style.color = 'black';
+            }
+        });
+
+        document.getElementById("color").addEventListener("change", function(event) {
+            var opts = event.target.options;
+            var index = opts.selectedIndex;
+            if(index !== 0) {
+                document.body.style.backgroundColor = opts[index].value;
+            }
+        });
+    </script>
+</body>
+
+</html>

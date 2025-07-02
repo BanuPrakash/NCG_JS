@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   
+    <title>MindParkour</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+     
+</head>
+<body class="container">
+    <h1 id="heading">Forms</h1>
+    <form>
+        Value 1 : <input type="text" id="t1" /> <br />
+        Value 2 : <input type="text" id="t2" /> <br />
+        <div id="result"></div>
+        <br />
+        <input type="radio" name="operator" value="add"> Add   
+        <input type="radio" name="operator" value="subtract"> Subtract  
+        <input type="radio" name="operator" value="multiply"> Multiply <br />
+        <br />
+        <button type="button" class="btn btn-primary" id="btn">Compute</button>
+    </form>
+
+    <script>
+            function validateNumber(evt) {
+                    if(isNaN(evt.target.value)) {
+                        evt.target.value = "";
+                        evt.target.focus();
+                    }
+            }
+
+            document.getElementById("t1").addEventListener("blur", validateNumber);
+            document.getElementById("t2").addEventListener("blur", validateNumber);
+
+             document.getElementById("btn").addEventListener("click", function(evt) {
+                var value1 = parseFloat(document.getElementById("t1").value);
+                var value2 = parseFloat(document.getElementById("t2").value);
+                var radioBtns = document.querySelectorAll("input[name='operator'");
+                var option;
+                for(i=0; i< radioBtns.length; i++) {
+                    if(radioBtns[i].checked) {
+                        option = radioBtns[i].value;
+                    }
+                }
+                var res = 0;
+                if(option =='add') {
+                     res = value1 + value2;
+                } else if(option == 'subtract') {
+                    res = value1 - value2;
+                } else if(option == 'multiply') {
+                    res = value1 * value2;
+                } 
+
+                document.getElementById("result").textContent = "Result :" + res;
+            });
+    </script>
+</body>
+
+</html>
