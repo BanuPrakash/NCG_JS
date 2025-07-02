@@ -821,5 +821,9 @@ JSX: JavaScript and XML
 ```
 
 React Demystify
+JSX has to be configured to JS object .
 
-Resume @ 4:00
+https://github.com/chentsulin/awesome-react-renderer
+
+JS object can be given to different renderes for Tv / Mobile / Web to convert to UI
+

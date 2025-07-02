@@ -26,16 +26,47 @@ names.forEach(name => console.log(name));
 let product = products[0];
 
 // createElement is to convert JSX to JS object
+// tags are like div, h1, p,..
+// props are attributes like className, src, width, style
+// children : elements within begin and end tag
 let React = {
-    createElement: () => { }
+    createElement: (tag, props, ...children) => {
+        if (typeof tag === 'function') {
+            return tag(props);
+        }
+        var element = { tag, props: { ...props, children } }
+        //    console.log(element);
+        return element;
+    }
 }
 
+function render(element, container) {
+    if (['string', 'number'].includes(typeof element)) {
+        container.appendChild(document.createTextNode(String(element)));
+        return;
+    }
+    let domElement = document.createElement(element.tag);
+    if (element.props) {
+        if (element.props.children) {
+            element.props.children.forEach(child => render(child, domElement));
+        }
+    }
+    container.appendChild(domElement);
+}
 
-let ProductCard = <div className="card">
+// JSX
+let ProductCard = () => (<div className="card">
     <h1 className="card-header">
-        ${product.name}
+        {product.name}
     </h1>
     <div className="card-body">
-        ${product.category} Rs.${product.price}
+        {product.category} Rs.{product.price}
     </div>
-</div>
+</div>)
+
+console.log(ProductCard);
+
+// render(ProductCard, document.getElementById("root"));
+
+render(<ProductCard />, document.getElementById("root"));
+
