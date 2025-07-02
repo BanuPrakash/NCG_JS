@@ -698,3 +698,92 @@ npm test --> looks for files with *.test.js or *.spec.js
 
 Unit testing *.test.js
 E2E testing *.spec.js
+
+=========
+
+JavaScript build tools:
+* Grunt
+* Gulp
+* Webpack [default used for Angular/React scaffolding code]
+* Vite
+
+Grunt is a JavaScript task runner, a tool used to automatically perform frequent tasks such as minification, compilation, unit testing, and linting.
+
+In nodejs
+tsc customer.ts --> customer.js
+tsc product.ts --> product.js
+
+Babel is a free and open-source JavaScript transcompiler that is mainly used to convert ECMAScript 2015+ (ES6+) code into backwards-compatible JavaScript code that can be run by older JavaScript engines.
+
+=============================
+```
+Step 1: initialize node js project
+webpack_example % npm init -y
+
+Step 2: install development dependencies
+webpack_example % npm i webpack webpack-cli @babel/core babel-loader @babel/preset-env -D
+
+We start using ESM -> ES6 Module system instead of CommonJS module system
+import {filter} from './lib'; 
+instead
+of
+const {filte} = require('./lib');
+
+babel-loader loads ESM
+loaded file is given to @babel/core --> transpiler
+
+@babel/preset-env --> @babel/preset-env is a smart preset that allows you to use the latest JavaScript without needing to micromanage which syntax transforms (and optionally, browser polyfills) are needed by your target environment(s).
+
+let add = (x,y) => x + y; is converted to
+
+function add(x, y) {
+    return x + y;
+}
+
+A polyfill is a piece of code (typically JavaScript) that provides modern functionality to older browsers that don't natively support it. 
+
+Promise, Map, Set, Generator --> not available in older JS engine.
+
+core-js: Includes polyfills for ECMAScript up to 2023: promises, symbols, collections, iterators, typed arrays, many other features, ECMAScript proposals
+
+import 'core-js/actual/promise'; <--- Pollyfill 
+Promise.resolve(42).then(it => console.log(it)); // => 42
+
+===
+
+npm i css-loader style-loader -D
+
+this allows to import CSS file in JS file
+
+import './styles.css' <-- css-loader loads this file
+
+style-loader places the css inside <style> tag
+
+<style>
+    .body {
+
+    }
+    table {
+
+    }
+</style>
+
+======
+
+npm i webpack-dev-server html-webpack-plugin -D
+
+webpack-dev-server: it's a miniature web server, good for testing/development environment. In production we might need a full fledged servers like Apache, IIS, NginX, ...
+
+The HtmlWebpackPlugin simplifies creation of HTML files to serve your webpack bundles. 
+index.html
+<script src="bundle.js"> </script>
+
+This is especially useful for webpack bundles that include a hash in the filename which changes every compilation.
+
+<script src="bundle.fsdf$2#cd4.js"> </script>
+
+Also in bigger projects we have many bundles
+<script src="bundle.fsdf$2#cd4.js"> </script>
+<script src="cart.bundle.js"> </script>
+<script src="vendor.js"> </script>
+```
