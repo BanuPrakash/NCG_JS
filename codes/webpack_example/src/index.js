@@ -2,6 +2,8 @@
 
 import filter, {map} from "./lib";
 
+import './styles.css'; // css-loader and style-loader
+
 var products = [
     { "id": 13, "name": "iPhone 16", "price": 98000.00, "category": "mobile" },
     { "id": 13, "name": "Onida Thunder", "price": 3000.00, "category": "tv" },
