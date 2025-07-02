@@ -803,3 +803,23 @@ orphan modules 438 bytes [orphan] 1 module
 ./src/index.js + 1 modules 1.28 KiB [built] [code generated]
 
 ```
+
+https://webpack.js.org/plugins/split-chunks-plugin/#optimizationsplitchunks
+
+@babel/preset-react: JSX to JS object conversion
+JSX: JavaScript and XML
+```
+    <div className="card">
+        <h1 className="card-header">
+            ${product.name}
+        </h1>
+        <div className="card-body">
+            ${product.category} Rs.${product.price}
+        </div>
+    </div>
+
+```
+
+React Demystify
+
+Resume @ 4:00

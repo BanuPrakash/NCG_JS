@@ -1,6 +1,6 @@
 // const { filter, map } = require('./lib');
 
-import filter, {map} from "./lib";
+import filter, { map } from "./lib";
 
 import './styles.css'; // css-loader and style-loader
 
@@ -22,3 +22,20 @@ mobiles.forEach(mobile => {
 let names = map(products, function (p) { return p.name });
 
 names.forEach(name => console.log(name));
+
+let product = products[0];
+
+// createElement is to convert JSX to JS object
+let React = {
+    createElement: () => { }
+}
+
+
+let ProductCard = <div className="card">
+    <h1 className="card-header">
+        ${product.name}
+    </h1>
+    <div className="card-body">
+        ${product.category} Rs.${product.price}
+    </div>
+</div>

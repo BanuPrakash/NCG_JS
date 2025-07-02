@@ -9,6 +9,8 @@ module.exports = {
         path: path.resolve(__dirname, "dist"),
         filename: 'bundle.[contenthash:8].js'
     },
+    target: ["web", "es5"],
+    devtool: 'eval-cheap-module-source-map',
     module: {
         rules : [
             {
@@ -21,6 +23,12 @@ module.exports = {
                 use: ["style-loader", "css-loader"]
             }
         ]
+    },
+    optimization: {
+        splitChunks: {
+            "chunks": "all",
+            "name": "vendor"
+        }
     },
     plugins: [new HtmlWebpackPlugin({
         template : path.resolve(__dirname, "src", "index.html")
