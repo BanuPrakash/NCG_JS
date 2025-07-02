@@ -786,4 +786,20 @@ Also in bigger projects we have many bundles
 <script src="bundle.fsdf$2#cd4.js"> </script>
 <script src="cart.bundle.js"> </script>
 <script src="vendor.js"> </script>
+
+npm run dev
+asset bundle.d2bd1b07.js 5.53 KiB [emitted] [immutable] (name: main)
+runtime modules 670 bytes 3 modules
+cacheable modules 1.28 KiB
+  ./src/index.js 871 bytes [built] [code generated]
+  ./src/lib.js 438 bytes [built] [code generated]
+webpack 5.99.9 compiled successfully in 303 ms
+
+
+npm run prod
+
+asset bundle.2ecf3b6f.js 609 bytes [emitted] [immutable] [minimized] (name: main)
+orphan modules 438 bytes [orphan] 1 module
+./src/index.js + 1 modules 1.28 KiB [built] [code generated]
+
 ```
