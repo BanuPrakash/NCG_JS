@@ -689,3 +689,12 @@ npm i jest -D
 
 this installs into "node_modules" folder
 
+Team members:
+node_example> npm install
+
+checks package.json and installs dep / devDep /peerDep
+
+npm test --> looks for files with *.test.js or *.spec.js
+
+Unit testing *.test.js
+E2E testing *.spec.js

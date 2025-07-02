@@ -1,6 +1,7 @@
 
 function add(x, y) {
     return x + y;
+    // return 0;
 }
 
 // using arrays forEach HOF function 
