@@ -673,3 +673,19 @@ CommonJS Module System:
 3) use module.exports to export a member
 4) use require() to import a member into other modules
 
+====
+Unit Testing JS frameworks:
+1) Jasmine [default configured for Angular]
+2) Mocha [ good for API testing]
+3) JEST [ default configured along with React Testing Library]
+
+Assertion libraries are different for each. 
+data.to.be(1); data.toBe(1);
+
+3rd party assertion library --> chai.js
+====
+install JEST as development dependencies
+npm i jest -D 
+
+this installs into "node_modules" folder
+
