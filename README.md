@@ -602,4 +602,74 @@ bundle.js contains minfifies and uglified versions of customer.js, product.js, o
     <script src="bundle.js"></script>
 ```
 
+NodeJs uses package managers like Maven / Gradle for Java. PIP for python
+Package managers:
+* NPM --> default
+* YARN
+* PNPM --> good for mono repository and Micro frontend
+
+use package managers to manage dependencies / devDepenendencies and also to run scripts.
+
+========
+node_example % npm init --y
+
+creates package.json --> similar like pom.xml
+
+NodeJS by default uses CommonJS module system.
+Other module systems:
+1) CommonJS
+2) ESM --> ES6 Module system
+3) AMD --> Asynchronous Module Definition
+4) SystemJS
+5) IIFE --> Immedidate Invoke Function Expression
+
+Module system brings in the concept of visiblity like private and public members
+
+IIFE:
+```
+    let ShopModule = (function() {
+        var data  = "Shop Data"; // private 
+        function setData(d) {
+            data = d;
+        }
+        function getData() {
+            return data;
+        }
+
+        return {
+            getData,
+            setData
+        }
+    })();
+
+     let CustomerModule = (function() {
+        var data  = "Customer Data"; // private
+        var name = "Roger"; // private
+        function setData(d) { // private
+            data = d;
+        }
+        function getData() {
+            return data;
+        }
+        function getName() {
+            return name;
+        }
+
+        return {
+            getName,
+            getData
+        }
+    })();
+
+    CustomerModule.getData(); 
+    CustomerModule.setData("Danny"); // error, private
+
+    ShopModule.getData(); 
+```
+
+CommonJS Module System:
+1) one file is one module
+2) all members in a file is private by default
+3) use module.exports to export a member
+4) use require() to import a member into other modules
 
