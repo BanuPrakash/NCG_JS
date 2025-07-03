@@ -994,3 +994,19 @@ getByPlaceHolderText(/search by name/)
 
 npm i cypress -D
 
+==========================
+
+Component Life Cycle
+
+Mounting Phase:
+constructor() ==> render() ==> componentDidMount()
+initialization ==> render() ==> Make API calls 
+
+Don't make API calls in constructor() ==> FCP issue
+
+Updating Phase:
+any dependent API call --> componentDidUpdate
+
+===============
+
+shouldComponentUpdate() --> life cycle method
