@@ -827,3 +827,124 @@ https://github.com/chentsulin/awesome-react-renderer
 
 JS object can be given to different renderes for Tv / Mobile / Web to convert to UI
 
+https://www.youtube.com/watch?v=t1-KshFI-LQ
+
+============
+
+Day 3
+
+* Server Side Rendering
+    Data --> Presentation --> server --> sends Presentation pages like PDF / HTML
+    * Heterogenous clients --> Web / Tv / Mobile / Desktop
+   * Multi page applications 
+* Client Side Rendering 
+        * light payload --> only JSON / XML is sent between client and server
+     * Single Page Application
+     * Mobiles / Tv / Desktop could consume then and create pages on client machined
+
+* DOM 
+* jQuery library which simplified the way DOM was used
+```
+    $("<div/>") --> document.createElement("div")
+
+    $("div .card") --> document.querySelectorAll("div .card");
+```
+* Single Page Application
+* templates
+1) Mustache {{ }}
+2) Handlebars #
+3) EJS / PUG / JADE
+4) Knockout
+5) underscore
+
+MVC pattern
+Model View Controller
+
+* Backbone library --> Model and Controller support
+* AngularJS --> Google --> MVC based framework
+* Facebook started it's own view library
+    XHP --> 2010
+    FaxJS --> 2011
+    ReactJS -> 2012
+    in 2013 --> Open Source
+    Khan Acedemy --> sophie alpert
+    Netflix
+* Angular --> Google
+* Vue / Svelte
+
+============================
+
+React --> View library --> Facebook
+JSX --> JavaScript and XML
+
+React Elements --> wrapper for UI elements like DOM
+* React.createElement() core API
+* Functional components --> function returns JSX --> React.createElement
+
+```
+function ProductCard ()(
+    return <div className="card">
+    <h1 className="card-header">
+        {product.name}
+    </h1>
+    <div className="card-body">
+        {product.category} Rs.{product.price}
+    </div>
+</div>)
+```
+
+* Class Component will have render() method returning JSX --> React.createElement
+
+Use Functional component [98%] over class components [2%]
+
+=============
+
+npm i yarn -g
+
+two ways to create a react application.
+1) npx create-react-app customerapp
+2) yarn create react-app customerapp
+
+This creates a scffolding by using webpack
+
+```
+"start": "react-scripts start",
+webpack serve --mode development
+
+"build": "react-scripts build",
+webpack --mode production
+
+"test": "react-scripts test",
+npm test
+    "eject": "react-scripts eject"
+
+ejects the application to low-level webpack application
+for customization
+
+```
+
+Thinking in React:
+Atoms: The most basic building blocks, like buttons, input fields, or icons. 
+<button type="button">OK</button>
+95 % of the time we don't build them, use existing libraries
+* https://react-bootstrap.netlify.app/docs/components/buttons
+* https://primereact.org/
+* MUI
+* https://opensource.adobe.com/spectrum-web-components/components/button/
+
+Molecules: Combinations of atoms that form a functional unit, like a search form (input field + button). 
+* Card
+* Navbar
+Organisms: More complex components made up of molecules and potentially other atoms
+Card list
+
+Templates: Layout structures that arrange organisms to define page structure. 
+
+Pages: Specific instances of templates filled with real content. 
+
+=============
+
+Class Component
+* state and behaviour
+* extends Component or PureComponent
+
