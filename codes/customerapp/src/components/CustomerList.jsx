@@ -51,15 +51,20 @@ export default class CustomerList extends Component {
     }
 
     filterCustomer(txt) {
-        // delete based on lastName --> G
+        // filter based on lastName --> G
+        let custs = this.state.original.filter(customer => customer.lastName.indexOf(txt) >= 0);
+        this.setState({
+            customers: custs
+        });
     }
     deleteCustomer(id) {
         let custs = this.state.customers.filter(customer => customer.id !== id);
-        this.state.customers = custs; // change the state --> doesn't trigger reconcillation
+        // this.state.customers = custs; // change the state --> doesn't trigger reconcillation
 
         // force reconcilliation
         this.setState({
-            customers: custs
+            customers: custs,
+            original: custs,
         }, () => {
             console.log(this.state.customers);
         });
