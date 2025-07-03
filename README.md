@@ -992,3 +992,5 @@ getByRole('button')
 
 getByPlaceHolderText(/search by name/)
 
+npm i cypress -D
+
