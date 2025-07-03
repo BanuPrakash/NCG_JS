@@ -1018,6 +1018,7 @@ class MyComponent extends PureComponent {
 =====
 
 Task:
+```
 public class Quiz extends Component {
     state = {
         "answered": {
@@ -1050,3 +1051,5 @@ public class Quiz extends Component {
         }))
     }
 }
+
+```
