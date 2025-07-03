@@ -18,3 +18,16 @@ export default class CustomerRow extends Component {
     )
   }
 }
+
+// export default function CustomerRow({customer, deleteRow}) {
+//       let {id, firstName, lastName, gender} = customer;
+//     return (
+//          <div>
+//             {firstName} {lastName} {gender}
+//          &nbsp; &nbsp;
+//          <button type="button" onClick={() => deleteRow(id)}>Delete</button>
+//        </div>
+//     )
+// }
+
+// convert to functional component !!!

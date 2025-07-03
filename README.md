@@ -948,3 +948,47 @@ Class Component
 * state and behaviour
 * extends Component or PureComponent
 
+=====
+```
+    state = {
+
+        questions:  [{
+            "id": 1,
+            "question": "What is MVC?" ,
+            "options": ["Language", "Library", "Framework", "Application"],
+            "correct" : "Framework"
+         },
+         {
+            "id": 2,
+            "question": "What is the smallest unit of data in a computer?" ,
+            "options": ["Gigabyte", "Bit", "Byte", "Terabyte"],
+            "correct" :  "Bit"
+         },
+         {
+            "id": 3,
+            "question": "What is the full form of PROM ?",
+            "options": ["Program read-only memory", "Primary read-only memory", "Programmable read-only memory", "Program read-output memory "],
+            "correct" :  "Programmable read-only memory"
+         },
+        {
+            "id": 4,
+            "question": "What is URL ?",
+            "options": ["Undistributed Resource Locator", "Unified Resource Locator", "Uniform Region Locator", "Uniform Resource Locator"],
+            "correct" :  "Uniform Resource Locator"
+         }
+        ]
+    }
+```
+
+Testing:
+Unit Testing Components
+E2E Testing
+
+Unit Testing React Components is based on JEST --> REACT TESTING LIBRARY RTL
+
+getByText(/Customer Application/i)
+
+getByRole('button')
+
+getByPlaceHolderText(/search by name/)
+

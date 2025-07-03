@@ -4,9 +4,8 @@ import CustomerList from './components/CustomerList';
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
+        <h1>Customer Application</h1>
         <CustomerList />
-      </header>
     </div>
   );
 }
