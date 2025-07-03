@@ -1010,3 +1010,43 @@ any dependent API call --> componentDidUpdate
 ===============
 
 shouldComponentUpdate() --> life cycle method
+
+class MyComponent extends PureComponent {
+    // has default shouldComponentUpdate() implementation checks state and props
+}
+
+=====
+
+Task:
+public class Quiz extends Component {
+    state = {
+        "answered": {
+            "1": "",
+            "2": "",
+            "3" : "",
+            .
+        }
+        "questions": []
+    }
+
+    componentDidMount() {
+        fetch("https://opentdb.com/api.php?amount=10&category=18").then(response => response.json()).then(data => {
+            // process the data and set it
+           
+           { 
+                "id": 1,
+                "question": "The Harvard architecture for micro-controllers added which additional bus?",
+                "correct_answer": "Instruction",
+                "options": [
+                        "Address",
+                        "Data",
+                        "Instruction"
+                        "Control"
+                ]
+           }
+            this.setState({
+                questions: "processed one"
+            })
+        }))
+    }
+}
