@@ -3,12 +3,14 @@ import { useState } from 'react';
 import ParentComponent from './hooks/ParentComponent';
 import UserDetailsComponent from './hooks/UserDetailsComponent';
 import UsersComponent from './hooks/UsersComponent';
+import TodoList from './hooks/TodoList';
 
 function App() {
   let [id, setId] = useState(1);
   return (
     <div>
-      <ParentComponent />
+      <TodoList />
+      {/* <ParentComponent />
       <table>
         <tbody>
           <tr>
@@ -16,7 +18,7 @@ function App() {
             <td><UserDetailsComponent id={id} /></td>
           </tr>
         </tbody>
-      </table>
+      </table> */}
 
     </div>
   );

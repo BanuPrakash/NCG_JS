@@ -1161,3 +1161,37 @@ React.memo() is a HOC similar to memoize() HOF we wrote
 
 useEffect for componentDidMount, componentDidUpdate and componentWillUnmount
 
+ 
+useReducer hook to be used instead of useState for:
+1) conditionally update the state
+2) state update depends on previous state
+3) update logic is complex
+4) nested state, performance optimization to avoid re-render
+
+```
+Assume state is like below:
+    {
+        cartItems: [ {
+            id: 52, name : "A", "qty": 1, amount: 521,
+        } ,
+            {
+                id: 91, name: "T", "qty": 2, amount: 8000.00
+            }
+        ],
+        total: 9011.33,
+        quantity: 4
+    }
+Actions can be ADD TO CART, INCREMENT, DECREMENT, REMOVE FROM CART, CLEAR CART
+```
+
+useReducer depends on:
+1) reducer function (state, action) => new state
+2) action is an object of type 
+{
+    type: 'ADD_TO_CART',
+    payload: {} // optional
+} 
+
+3) dispatch --> a mechanism to delegate action to reducer fn
+
+TODOList: add, toggle, remove
