@@ -1289,3 +1289,8 @@ Link ==> client side routing
 
 Including all components in "bundle.js" --> FCP --> First Contentful Paint
 Solution is Lazy load components.
+
+5) API calls
+
+Axios is a popular, promise-based JavaScript library used for making HTTP requests from web browsers or Node.js environments, enabling easy communication between frontend and backend applications.
+
