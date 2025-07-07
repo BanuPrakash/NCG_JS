@@ -1092,7 +1092,7 @@ React 16.8 introduced Hooks, hooks can be used to simulate life cycle methods an
 
 React Hooks: useXXX()
 * useState
-* useEffect
+* useEffect: for sideEffects like API calls
 * useReducer
 * useCallback
 * useContext
@@ -1158,3 +1158,6 @@ React.memo() is a HOC similar to memoize() HOF we wrote
     }
 
 ```
+
+useEffect for componentDidMount, componentDidUpdate and componentWillUnmount
+
