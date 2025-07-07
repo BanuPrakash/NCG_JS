@@ -4,11 +4,13 @@ import ParentComponent from './hooks/ParentComponent';
 import UserDetailsComponent from './hooks/UserDetailsComponent';
 import UsersComponent from './hooks/UsersComponent';
 import TodoList from './hooks/TodoList';
+import Base from './context/Base';
 
 function App() {
   let [id, setId] = useState(1);
   return (
     <div>
+      <Base />
       <TodoList />
       {/* <ParentComponent />
       <table>

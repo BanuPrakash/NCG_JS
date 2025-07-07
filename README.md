@@ -1223,3 +1223,15 @@ Simpler for Basic Use Cases:
 Can be simpler to implement for very basic forms where you only need the value on submission and don't require extensive real-time interaction or validation.
 
 ```
+
+ React passes data from parent to child in the form of props.
+ Issue with this: Prop drilling in React refers to the practice of passing data (props) from a parent component down through multiple layers of nested child components, even when intermediate components in the hierarchy do not directly use those props.
+
+ Context provides a way to pass data through the component tree without having to pass props down manually at every level.
+
+ Provider: places data into context
+ Consumer: subscribes for data from context
+
+ React Context: can also be used for State management in small to medium sized application --> anti pattern
+
+ 
