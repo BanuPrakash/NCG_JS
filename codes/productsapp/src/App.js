@@ -1,12 +1,13 @@
 import './App.css';
+import { lazy, Suspense } from 'react';
 import { Routes, Route } from 'react-router-dom'
 import ProductList from './components/ProductList';
-import Cart from './components/Cart';
-import Details from './components/Details';
 import Default from './components/Default';
 import NavbarComponent from './components/NavbarComponent';
+import { Container } from 'react-bootstrap'
 
-import {Container} from 'react-bootstrap'
+const Cart = lazy(() => import('./components/Cart'));
+const Details = lazy(() => import('./components/Details'));
 
 function App() {
   return (
@@ -14,8 +15,16 @@ function App() {
       <NavbarComponent />
       <Routes>
         <Route path='/' element={<ProductList />} />
-        <Route path='/cart' element={<Cart />} />
-        <Route path='/details/:id' element={<Details />} />
+        <Route path='/cart' element={
+          <Suspense fallback={<h1>Loading Cart ....</h1>}>
+            <Cart />
+          </Suspense>
+        } />
+        <Route path='/details/:id' element={
+          <Suspense fallback={<h1>Loading Details ....</h1>}>
+            <Details />
+          </Suspense>
+        } />
         <Route path='/products' element={<ProductList />} />
         <Route path='*' element={<Default />} />
       </Routes>

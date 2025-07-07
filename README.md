@@ -1286,3 +1286,6 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 4) Handle routers
 href ==> server side routing
 Link ==> client side routing
+
+Including all components in "bundle.js" --> FCP --> First Contentful Paint
+Solution is Lazy load components.
