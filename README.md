@@ -1098,6 +1098,7 @@ React Hooks: useXXX()
 * useContext
 * useParams
 * useSearchParams
+* useRef
 ....
 
 yarn create react-app hooks-example
@@ -1195,3 +1196,30 @@ useReducer depends on:
 3) dispatch --> a mechanism to delegate action to reducer fn
 
 TODOList: add, toggle, remove
+
+========
+
+Controlled Components:
+```
+State Management:
+The values of form elements (like <input>, <textarea>, <select>) are managed and controlled by React's state.
+Single Source of Truth:
+The React state serves as the single source of truth for the input's value.
+Value and onChange:
+The input's value prop is set by the state, and an onChange event handler updates the state whenever the input changes. This creates a two-way data binding.
+Predictability and Control:
+Offers tight control over form data, enabling real-time validation, formatting, and dynamic updates based on other parts of the application's state.
+```
+
+Uncontrolled Components:
+```
+DOM Management:
+Form data is primarily handled by the DOM itself, similar to how traditional HTML forms work.
+Refs:
+Instead of using state, you typically use refs to directly access the DOM element and retrieve its current value when needed (e.g., on form submission).
+Less Control:
+Offers less immediate control over the input's value during user interaction, as React is not actively managing its state.
+Simpler for Basic Use Cases:
+Can be simpler to implement for very basic forms where you only need the value on submission and don't require extensive real-time interaction or validation.
+
+```
