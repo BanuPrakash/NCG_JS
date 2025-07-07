@@ -1053,3 +1053,108 @@ public class Quiz extends Component {
 }
 
 ```
+
+Recap of Day 3:
+```
+    @babel/preset-react looks for React.createElement() --> to covert JSX to JS object 
+    JS object is given to render() provided by different libraries to convert to Presentation.
+
+    yarn create react-app name-of-app
+    creates a scaffolding code using webpack [react-scripts]
+    HtmlWebpackPlugin, webpack-dev-server, babel-loader, @babel/core, @babel/preset-env, @babel-preset-react
+    css-loader and style-loader, file-loader are all included.
+
+    * React.createElement() --> Core API
+    * functional Component ===> returns JSX
+    * class component ==> extends Component / PureComponent; render() returns JSX
+
+    class component can have life-cycle methods and state
+    Reconcillation --> state changes --> run diffing algorithm between VDOM and VDOM copy and decide to re-create/update DOM elements; importance of "key" attribute
+    onXXX() for event handling
+    props --> mechanism to pass data from parent to child
+    Note: React is uni-directional data flow
+    Angular supports bi-directional data flow
+
+    for class component props is passed implicitly
+    for functional component explictly we need to take it as argument
+    function Component(props) {}
+
+    RTL --> unit testing React component
+    Cypress -> E2E testing [ application should be running]
+```
+
+Day 4:
+Functional components to be preffered instead of class components from version 16.8 onwards
+
+class component --> state and life cycle methods
+
+React 16.8 introduced Hooks, hooks can be used to simulate life cycle methods and state members.
+
+React Hooks: useXXX()
+* useState
+* useEffect
+* useReducer
+* useCallback
+* useContext
+* useParams
+* useSearchParams
+....
+
+yarn create react-app hooks-example
+
+useState: this hook is used to introduce state member in functional components.
+
+```
+    function MyComponent(){
+        let [name, setName] = useState('');
+        let [age, changeAge] = useState(18);
+
+        <button type='button' onClick={() => changeAge(age + 1)}>
+            Update
+        </button>
+    }
+
+    public class MyComponent extends Component {
+        state = {
+            name : '',
+            age: 18
+        }
+    }
+    setName(arg) {
+         this.setState({
+            name: arg
+        })
+    }
+
+    setAge(arg) {
+        this.setState({
+            age: arg
+        })
+    }
+   
+Angular approach:
+@Component({
+    template: `<div>{name}</div>`
+})
+public class MyComponent {
+    name;
+    age;
+    doTask() {}
+}
+```
+
+npk i @faker-js/faker
+
+shouldComponentUpdate() life cycle method solved the problem of re-rendering if dependent props didn't change
+
+React.memo() is a HOC similar to memoize() HOF we wrote
+```
+    function memo(Component) {
+        let cacheProps = {} // Closure
+        compare new props with cacheProps;
+        if same
+            return;
+        else return Component(props);
+    }
+
+```
