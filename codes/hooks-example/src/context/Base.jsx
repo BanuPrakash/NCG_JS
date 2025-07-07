@@ -1,7 +1,9 @@
 import React, { createContext, useState } from 'react'
 import First from './First';
 
-const PersonContext = createContext(); // central placeholder of data
+const PersonContext = createContext({
+    location: 'Blore'
+}); // central placeholder of data
 
 export { PersonContext }
 

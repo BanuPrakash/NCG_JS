@@ -1234,4 +1234,55 @@ Can be simpler to implement for very basic forms where you only need the value o
 
  React Context: can also be used for State management in small to medium sized application --> anti pattern
 
- 
+ ==========
+
+ Build SPA [Single Page Application] with RWD [Response Web Design] using:
+ 1) hooks
+ 2) Context
+ 3) react-router-dom
+ 4) bootstrap
+ 5) react-bootstrap
+ 6) @fortawesome for icons
+ 7) axios for API calls
+
+Components:
+1) NavbarComponent
+2) ProductList
+3) ProductCard
+4) Details
+5) Default
+6) Cart
+7) CartRow
+
+bootstrap --> CSS Framework for RWD, uses 12 grid/column system
+react-bootstrap --> react components for using CSS. provides atoms and molecules 
+
+```
+    boostrap
+    <div className='container'>
+    </div>
+
+    react-bootstrap
+    <Container>
+
+    </Container>
+
+    <img src="" class="col-sm-12 col-md-6 col-lg-4">
+```
+
+react-router-dom:
+react-router-dom is a library used in React applications to handle client-side routing, enabling navigation between different views or "pages" without requiring a full page reload.
+* Different URLs different pages / views has to be loaded in client app, without interaction with Server.
+* Also helps us in lazy loading of components.
+
+Steps:
+
+1) yarn create react-app productsapp
+2) productsapp% npm i bootstrap react-bootstrap react-router-dom axios @fortawesome/free-solid-svg-icons @fortawesome/react-fontawesome
+
+3) include bootstrap in index.js
+import 'bootstrap/dist/css/bootstrap.min.css'
+
+4) Handle routers
+href ==> server side routing
+Link ==> client side routing
