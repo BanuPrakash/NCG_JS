@@ -1405,4 +1405,10 @@ Scenario 3: children are based on usage in application and can be Context Consum
 
 =============
 
+Fake RESTful API calls
+npx json-server --watch data.json --port 1234
+Endpoints:
+http://localhost:1234/orders
+http://localhost:1234/customers
+http://localhost:1234/products
 
