@@ -10,13 +10,33 @@ export default function cartReducer(state, action) {
                 quantity: state.quantity + 1
             }
         case 'INCREMENT':
-            return state;
+            let existingItems = state.cartItems;
+            existingItems.forEach(item => {
+                if (item.id === action.payload) {
+                    item.qty++;
+                    item.amount = item.qty * item.price;
+                    // add GST, discount
+                }
+            }
+            );
+            let ttl = existingItems.map(item => item.amount).reduce((v1, v2) => v1 + v2, 0.0);
+
+            return {
+                cartItems: existingItems,
+                total: ttl,
+                quantity: state.quantity
+            };
+
         case 'DECREMENT':
             return state;
         case 'REMOVE_FROM_CART':
             return state;
         case 'CLEAR_CART':
-            return state;
+            return {
+                cartItems: [],
+                total: 0.0,
+                quantity: 0
+            };
         default:
             return state;
     }

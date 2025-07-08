@@ -1402,3 +1402,7 @@ Scenario 3: children are based on usage in application and can be Context Consum
        {props.children}
 </CartContext.Provider> 
 ```
+
+=============
+
+

@@ -20,8 +20,16 @@ export default function CartContextProviderComponent(props) {
     dispatch({ type: 'ADD_TO_CART', payload: product })
   }
 
+  function increment(id) {
+     dispatch({ type: 'INCREMENT', payload: id })
+  }
+
+  function checkout() {
+    dispatch({ type: 'CLEAR_CART'});
+  }
+  
   return (
-    <CartContext.Provider value={{ ...state, addToCart}}>
+    <CartContext.Provider value={{ ...state, addToCart, increment, checkout}}>
       {props.children}
     </CartContext.Provider>
   )
