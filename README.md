@@ -1294,3 +1294,111 @@ Solution is Lazy load components.
 
 Axios is a popular, promise-based JavaScript library used for making HTTP requests from web browsers or Node.js environments, enabling easy communication between frontend and backend applications.
 
+========
+
+Recap:
+```
+    Hooks: useState, useEffect
+    useEffect(() => {
+        gets called whenever state / props change
+    })
+
+     useEffect(() => {
+        gets called whenever name changes
+    }, [name])
+   
+      useEffect(() => {
+        gets called once when component is loaded
+    },[])
+
+     useEffect(() => {
+       //
+       return () => console.log("Called when component is unmounted");
+    }, [])
+
+    useReducer --> instead of useState if 
+    1) conditionally mutate the state
+    2) state mutation depends on previous state
+    3) state mutation logic is complex, nested state
+    4) better performance
+
+    Context: to avoid props drill; Provider and Consumer
+    useContext() hook is used as Consumer
+    export default function SampleComponent {
+        let {name, age} = useContext(PersonContext);
+    }
+    
+    for class component:
+    export default class SampleComponent {
+        render() {
+            return <PersonContext.Consumer>
+                {
+                    value => (
+                        <div>
+                            Name : {value.name} <br />
+                            Age: {value.age}
+                        </div>
+                    )
+                }
+            </PersonContext.Consumer>
+        }
+    }
+
+    React.memo() --> shouldComponentUpdate()
+
+    react-router-dom: Client side routing, lazy loading of components.
+
+* useRef () hook is used to create a reference / pointer --> generally used to attach it to DOM element
+
+ export default class SampleComponent {
+
+    nameRef = createRef();
+    render() {
+    return(
+        <div>
+                <input type="text" ref = {this.nameRef} />
+        </div>
+    )
+    }
+ }
+
+ export default function SampleComponent {
+    let nameRef = useRef(); // create a reference
+    let btnRef = useRef();
+    return(
+        <div>
+                <input type="text" ref = {nameRef} />
+                <button type="btn" ref={btnRef}>Click</button>
+        </div>
+    )
+ }
+
+ nameRef.current.value
+ btnRef.current.click();
+ nameRef.current.focus();
+```
+
+
+Scenario 1: A and B component and it's children can be Context Consumer
+```
+<CartContext.Provider value={{...state}}>
+        <A />
+        <B />
+</CartContext.Provider> 
+```
+
+Scenario 2: C , D and E component and it's children can be Context Consumer
+```
+<CartContext.Provider value={{...state}}>
+        <C />
+        <D />
+        <E />
+</CartContext.Provider> 
+```
+
+Scenario 3: children are based on usage in application and can be Context Consumer
+```
+<CartContext.Provider value={{...state}}>
+       {props.children}
+</CartContext.Provider> 
+```

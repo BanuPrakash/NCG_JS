@@ -7,8 +7,13 @@ export default function ProductList() {
 
   // componentDidMount
   useEffect(() => {
+    // fetch('https://fakestoreapi.com/products?limit=5')
+    // .then(response => response.json())
+    // .then(data => setProducts(data));
+
     axios.get('https://fakestoreapi.com/products?limit=5')
     .then(response => setProducts(response.data));
+    
   }, []);
 
   return (
