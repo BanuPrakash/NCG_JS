@@ -1438,8 +1438,58 @@ https://opensource.adobe.com/spectrum-web-components/
 
 https://opensource.adobe.com/spectrum-web-components/using-swc-react/
 
-=============
+====================
 
-State Management
+Predicatable State Management
+* React Context was not designed for state management, but still can be used for smaller and medium sized application
+* 3rd party libraries for State management
+1) MVC pattern was the default architectural pattern used for state management.
+Model represented the state
+Problem was View --> Controller --> Model --> Model --> View
+Dan Abramov --> React uses Uni-directional flow, state managment also as uni directional flow.
+* Flux Architectural Pattern
+class CartStore extends EventEmitter {
 
-Resume @ 2:00 
+}
+Dan Abramov --> Redux
+* Redux
+* MobX
+* ObservableJS
+* Recoil
+
+===============
+
+Predicatable State Management using Redux:
+Why Redux?
+1) can be developed as a sepearate module and integrated with other libraries/Frameworks like Angular/React/Vue/ JQuery ...
+2) Can be used even on server side JS application
+3) Time Travel Debugging, replay the actions and check state change
+4) Useful for MicroFrontEnd applications
+https://www.burhanuday.com/blog/2023/05/state-management-in-micro-frontends
+
+===============
+
+```
+{ 
+  "cart":
+    {
+        cartItems: [ {
+            id: 52, name : "A", "qty": 1, amount: 521,
+        } ,
+        {
+                id: 91, name: "T", "qty": 2, amount: 8000.00            
+        }
+        ],
+        total: 9011.33,
+        quantity: 4
+    },
+   "profile": {
+    "avatar":"pic.png",
+    "display": "Banu Prakash"
+   }
+}
+```
+
+yarn create react-app redux-example
+
+redux-example% npm i redux react-redux
