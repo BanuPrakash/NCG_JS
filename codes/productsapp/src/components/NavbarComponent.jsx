@@ -9,7 +9,7 @@ import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import { Badge } from 'react-bootstrap';
 
 export default function NavbarComponent() {
-    let {quantity} = useContext(CartContext);
+    let { quantity } = useContext(CartContext);
 
     return (
         <Navbar bg="primary" data-bs-theme="dark">
@@ -21,6 +21,8 @@ export default function NavbarComponent() {
                         <FontAwesomeIcon icon={faShoppingCart} color='white' />
                         <Badge>{quantity}</Badge>
                     </Nav.Link>
+                    <Nav.Link as={Link} to={"/form"}>Product Form</Nav.Link>
+
                 </Nav>
             </Container>
         </Navbar>

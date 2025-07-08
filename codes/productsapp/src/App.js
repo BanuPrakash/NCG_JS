@@ -5,6 +5,7 @@ import ProductList from './components/ProductList';
 import Default from './components/Default';
 import NavbarComponent from './components/NavbarComponent';
 import { Container } from 'react-bootstrap'
+import ProductForm from './components/ProductForm';
 
 const Cart = lazy(() => import('./components/Cart'));
 const Details = lazy(() => import('./components/Details'));
@@ -25,6 +26,8 @@ function App() {
             <Details />
           </Suspense>
         } />
+          <Route path='/form' element={<ProductForm />} />
+      
         <Route path='/products' element={<ProductList />} />
         <Route path='*' element={<Default />} />
       </Routes>

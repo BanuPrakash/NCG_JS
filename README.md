@@ -1417,3 +1417,29 @@ http://localhost:1234/products
 
 href ==> SS routing
 Link ==> Client Side routing
+
+https://react-spectrum.adobe.com/react-spectrum/index.html
+
+yarn add @adobe/react-spectrum
+npm i @fortawesome/fontawesome-svg-core
+
+Prefer adding below one in App.jsx or index.jsx
+```
+ <Provider theme={defaultTheme}>
+```
+
+Try using Uncontrolled Form:
+https://react-spectrum.adobe.com/react-spectrum/forms.html
+
+Task: use adobe spectrum Controlled and Uncontrolled Forms to add Product
+data.json
+
+https://opensource.adobe.com/spectrum-web-components/
+
+https://opensource.adobe.com/spectrum-web-components/using-swc-react/
+
+=============
+
+State Management
+
+Resume @ 2:00 
