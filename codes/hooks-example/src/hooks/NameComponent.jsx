@@ -1,10 +1,14 @@
 import React from 'react'
 
-export default function NameComponent({ name }) {
+function NameComponent({ name, updateName }) {
     console.log("NameComponent renders!!!")
     return (
         <div>
-            Name in NameComponent: {name}
+            Name in NameComponent: {name} <br />
+            <button onClick={updateName} type='button'>Update Name</button>
         </div>
     )
 }
+
+export default React.memo(NameComponent);
+

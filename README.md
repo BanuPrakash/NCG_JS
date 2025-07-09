@@ -1716,3 +1716,23 @@ Redux Middlewares are required for Async logic
 
 Thunk --> procedure
 
+
+======================
+
+State Management: Context vs Redux [ RTK ]
+Redux is Synchronous.
+For Async actions we need middleware like Thunk or Saga
+Thunk generates actions like nameofThunkFunction.pending,nameofThunkFunction.fullfilled,nameofThunkFunction.rejected which can be handled in extraReducers
+
+* configureStore
+* createSlice
+* createAsyncThunk
+
+===================
+
+frontend maven plugin
+
+==============================
+
+useCallback hook
+The React useCallback Hook returns a memoized callback function. 

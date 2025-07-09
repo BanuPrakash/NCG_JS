@@ -10,8 +10,9 @@ function App() {
   let [id, setId] = useState(1);
   return (
     <div>
-      <Base />
-      <TodoList />
+      <ParentComponent />
+      {/* <Base />
+      <TodoList /> */}
       {/* <ParentComponent />
       <table>
         <tbody>
