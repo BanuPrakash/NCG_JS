@@ -1707,12 +1707,12 @@ export default counterSlice.reducer
 
 ```
 
-dispatch(increment());
+Async Logic in Redux
+https://redux.js.org/tutorials/fundamentals/part-6-async-logic
 
-dispatch(incrementByAmount(10));
+Redux Middlewares are required for Async logic
+* Thunk
+* Saga
 
-looks like working
-on original state
-
-
+Thunk --> procedure
 

@@ -15,6 +15,7 @@ export default function Details() {
     axios.get(`http://localhost:1234/products/${id}`)
     .then(response => setProduct(response.data));
   }, [id]);
+  
   return (
     <div>
       <h1>Product Details</h1>
