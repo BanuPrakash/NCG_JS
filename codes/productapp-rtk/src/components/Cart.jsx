@@ -2,15 +2,24 @@ import React, { useContext } from 'react'
 
 import { Button, Container } from 'react-bootstrap';
 import CartRow from './CartRow'
-import { useSelector } from 'react-redux';
-
+import { useDispatch, useSelector } from 'react-redux';
+import { clearCart } from '../redux/features/CartSlice';
+import { useNavigate } from 'react-router-dom';
 export default function Cart() {
-  let {cartItems, total} = useSelector(state => state.cart);
+  let navigate = useNavigate();
+  let dispatch = useDispatch();
+  let { cartItems, total } = useSelector(state => state.cart);
+
+  function checkout() {
+    // place order
+    dispatch(clearCart());
+    navigate("/");
+  }
   return (
     <Container>
       {
         cartItems.map(product => <CartRow key={product.id} product={product} />)
-      } 
+      }
       <div className='row'>
         <div className='col-md-10'>
           &nbsp;
@@ -24,7 +33,7 @@ export default function Cart() {
           &nbsp;
         </div>
         <div className='col-md-2'>
-          <Button variant='success' >Checkout</Button>
+          <Button variant='success' onClick={checkout}>Checkout</Button>
         </div>
       </div>
     </Container>
