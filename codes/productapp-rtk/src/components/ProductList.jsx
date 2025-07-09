@@ -1,0 +1,29 @@
+import React, { useEffect, useState } from 'react'
+import axios from 'axios'
+import ProductCard from './ProductCard'
+
+export default function ProductList() {
+  let [products, setProducts] = useState();
+
+  // componentDidMount
+  useEffect(() => {
+    // fetch('https://fakestoreapi.com/products?limit=5')
+    // .then(response => response.json())
+    // .then(data => setProducts(data));
+
+    // axios.get('https://fakestoreapi.com/products?limit=5')
+    axios.get('http://localhost:1234/products')
+      .then(response => setProducts(response.data));
+
+  }, []);
+
+  return (
+    <div className='row'>
+      {
+        products && (
+          products.map(product => <ProductCard key={product.id} product={product} />)
+        )
+      }
+    </div>
+  )
+}

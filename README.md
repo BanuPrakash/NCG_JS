@@ -1493,3 +1493,185 @@ https://www.burhanuday.com/blog/2023/05/state-management-in-micro-frontends
 yarn create react-app redux-example
 
 redux-example% npm i redux react-redux
+
+===================
+
+1) @babel/preset-react -> babel-preset-react-app
+JSX --> JS object 
+React.createElement()
+2) functional components return JSX.
+Should have a single root element
+
+Below code is invalid: because we need a single root element
+```
+    function App() {
+        return <div>
+        </div>
+        <p>
+        </p>
+    }
+```
+Below code is invalid: JSX is unreachable, default return --> return undefined
+```
+    function App() {
+        return 
+        <div>
+            Hello World!!!
+        </div>
+    }
+```
+
+3) Div polluting in React
+```
+"Div pollution" in React refers to the excessive and often unnecessary nesting of div elements in the rendered HTML, which can lead to several issues:
+Increased DOM Complexity
+Reduced Readability
+Styling Challenges
+
+Solutions to Div Pollution
+
+// Instead of:
+    // <div>
+    //   <ChildA />
+    //   <ChildB />
+    // </div>
+
+ // Use a Fragment:
+    <React.Fragment>
+      <ChildA />
+      <ChildB />
+    </React.Fragment>
+React.Fragment will act like a root element, but will not be a part of final DOM
+OR:
+
+// Use a Fragment:
+    <>
+      <ChildA />
+      <ChildB />
+    </>
+
+Strict mode:
+    <React.StrictMode>
+      <ChildA />
+      <ChildB />
+    </React.StrictMode>
+StrictMode first renders in Memory and checks for misuse of life cycle methods, memory leaks. 
+Once again it renders View
+```
+
+4) Class component: one scenario where we can use Class components is for ErrorBoundary
+
+```
+class ErrorBoundary extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { hasError: false };
+  }
+
+  static getDerivedStateFromError(error) {
+    // Update state so the next render shows the fallback UI.
+    return { hasError: true };
+  }
+
+  componentDidCatch(error, errorInfo) {
+    // You can also log the error to an error reporting service
+    console.error("Error caught by ErrorBoundary:", error, errorInfo);
+  }
+
+  render() {
+    if (this.state.hasError) {
+      // You can render any custom fallback UI
+      return <h1>Something went wrong.</h1>;
+    }
+
+    return this.props.children; 
+  }
+}
+
+<ErrorBoundary>
+    <A />
+    <B />
+    <C />
+</ErrorBoundary>
+
+<ErrorBoundary>
+    <D />
+    <E />
+</ErrorBoundary>
+```
+
+React Hooks: 
+* useState
+* useEffect
+* useReducer
+* useContext
+* useRef
+
+* useParams
+* useSearchParams
+* useNavigate
+
+Pending: useCallback
+
+react-router-dom: client side routing and lazy loading of components
+
+==============
+
+State Management:
+1) React Context: for small and medium sized application
+2) Redux: predicatable state management
+Store --> Central source of truth. Redux has a single store. State resides in Store
+Reducer --> (state, action) => new state
+Root Reducer --> locus between store and reducers --> combineReducers
+react-redux --> connect(mapStateToProps, mapDispatchToProps)(App)
+App became a smart component.
+3) Mobx , MST, Advance Redux features in other trainings
+
+===========
+
+Day 6:
+
+RTK: Redux toolkit, The official, opinionated, batteries-included toolset for efficient Redux development
+
+* Simple
+* Opinionated: for example
+1) REDUX_DEVTOOLS_EXTENSION is configured out-of the box
+2) Middleware Thunk is configured out-of the box for async Redux
+Sync redux:
+Action --> dispatch --> store --> passes state and action to root reducer --> reducers -> return new state --> store updates the state
+
+* Powerful
+immutable update logic inspired by ImmerJS, Autodux, ImmutableJS
+
+Old Redux: we need to clone the state, make changes to the clone state and return the clone [new state]
+
+https://immutable-js.com/
+https://immerjs.github.io/immer/
+
+react-redux bridge library provides hooks:
+* useSelector() is approximately equivalent to the mapStateToProps argument to connect conceptually.
+* useDispatch() is approximately equivalent to the mapDispatchToProps argument to connect conceptually.
+
+We don't need to have the concept of Smart Components. Any functional component can use these hooks and interact with Redux.
+
+======================
+
+Migrate productapp to use RTK. [usage of Context to RTK]
+
+1) yarn create react-app productapp-rtk
+OR
+yarn create react-app productapp-rtk --template redux
+2) productapp-rtk% npm i bootstrap react-bootstrap react-router-dom axios @fortawesome/free-solid-svg-icons @fortawesome/react-fontawesome
+3) productapp-rtk% npm i react-redux @reduxjs/toolkit
+
+4) copy producapp code to productapp-rtk minus Context related
+
+5) yarn add @adobe/react-spectrum
+npm i @fortawesome/fontawesome-svg-core
+
+6) Remove all Context References
+a) delete reducers folder
+b) index.js remove  CartContextProvider references
+c) ProductCard
+d) CartRow
+4) Cart
