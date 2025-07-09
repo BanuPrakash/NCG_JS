@@ -4,9 +4,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeart, faShoppingCart } from '@fortawesome/free-solid-svg-icons'
 
 import { Link } from 'react-router-dom'
+import { useDispatch } from 'react-redux';
+import { addToCart } from '../redux/features/CartSlice';
 
 export default function ProductCard({ product }) {
-
+  let dispatch = useDispatch(); // mapDispatchToProps
 
   let { id, title, price, image } = product;
   return (
@@ -20,7 +22,11 @@ export default function ProductCard({ product }) {
         </Card.Body>
         <Card.Footer>
           Rs. {price} &nbsp;
-          <FontAwesomeIcon icon={faShoppingCart} color='blue' /> &nbsp;&nbsp;
+          <FontAwesomeIcon icon={faShoppingCart} color='blue' onClick={() => dispatch(addToCart({
+            ...product,
+            qty: 1,
+            amount: price
+          }))}/> &nbsp;&nbsp;
           <FontAwesomeIcon icon={faHeart} color='red' />
         </Card.Footer>
       </Card>

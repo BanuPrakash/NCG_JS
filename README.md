@@ -1675,3 +1675,44 @@ b) index.js remove  CartContextProvider references
 c) ProductCard
 d) CartRow
 4) Cart
+
+=====
+RTK:
+createSlice
+A function that accepts an initial state, an object of reducer functions, and a "slice name", 
+and automatically generates action creators and action types that correspond to the reducers and state.
+
+
+```
+const initialState = { value: 0 } 
+
+const counterSlice = createSlice({
+  name: 'counter',
+  initialState,
+  reducers: {
+    increment: function(state) {
+      state.value++
+    },
+    decrement: function(state) {
+      state.value--
+    },
+    incrementByAmount: function(state, action: PayloadAction) {
+      state.value += action.payload
+    },
+  },
+})
+
+export const { increment, decrement, incrementByAmount } = counterSlice.actions
+export default counterSlice.reducer
+
+```
+
+dispatch(increment());
+
+dispatch(incrementByAmount(10));
+
+looks like working
+on original state
+
+
+
